@@ -73,6 +73,24 @@ git commit -m "Update demo trajectories"
 git push
 ```
 
+## View the Site Locally
+
+This is a plain static site (HTML/CSS/JS in `docs/` — no Jekyll or npm build step), so to preview changes before pushing, serve the `docs/` folder with a local web server:
+
+```bash
+cd docs
+python3 -m http.server 8000
+```
+
+Then open **http://localhost:8000** in your browser.
+
+Workflow:
+1. Edit files in `docs/` (`index.html`, `style.css`, `app.js`)
+2. **Refresh the browser** to see changes — hard-refresh (`Ctrl+Shift+R`) to bypass the cache for CSS/JS
+3. When happy, commit & push
+
+> **Why a server instead of opening `index.html` directly?** `app.js` uses `fetch()` to load `demo_trajectories.json`, which browsers block over `file://`. A local server avoids that. Stop the server with `Ctrl+C`.
+
 ## GitHub Pages Setup
 
 1. Go to your repo **Settings → Pages**

@@ -93,6 +93,14 @@
     letter-spacing: -0.01em;
     white-space: nowrap;
   }
+  /* 3D CUBE LOGO MARK (inline, before the title) */
+  .logo-mark {
+    display: inline-block;
+    height: 1.4em;
+    width: auto;
+    vertical-align: -0.45em;
+    margin-right: 0.35em;
+  }
   .nav-links {
     display: flex;
     gap: 1.75rem;
@@ -225,6 +233,8 @@
     font-size: 17px;
     line-height: 1.9;
     color: var(--ink2);
+    text-align: justify;
+    hyphens: auto;
   }
 
   /* SECTION HEADERS */
@@ -372,15 +382,17 @@
     line-height: 1.65;
   }
   .formula {
-    font-family: var(--mono);
-    font-size: 12px;
     background: var(--paper2);
     border: 1px solid var(--rule);
     border-radius: 6px;
-    padding: 0.65rem 1rem;
+    padding: 0.9rem 1rem;
     margin: 0.75rem 0;
     color: var(--ink);
+    overflow-x: auto;
   }
+  /* KaTeX-rendered equations — a bit bigger than body text */
+  .formula .katex { font-size: 1.25rem; }
+  .formula .katex-display { margin: 0; }
 
   /* INTERACTIVE DEMO */
   .demo-layout {
@@ -837,6 +849,55 @@
     padding: 2px 7px;
     border-radius: 2px;
     font-family: var(--mono);
+  }
+
+  /* ===== INTRO ANIMATION: diffusion → bin packing ===== */
+  /* Each logo cube starts scattered + faded (like diffusion noise) and settles into the packed stack. */
+  /* SVG must not clip while cubes fly in from across the page. */
+  .logo-mark { overflow: visible; }
+  .logo-mark .cube {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: cube-diffuse 1.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: var(--cd, 0s);
+  }
+  @keyframes cube-diffuse {
+    0% {
+      /* Far away: cube is 6–8× its final size, then shrinks proportionally as it travels in. */
+      transform: translate(var(--ox, 0), var(--oy, 0)) scale(var(--s0, 7));
+      opacity: 0;
+      filter: blur(2px);
+    }
+    20% { opacity: 1; filter: blur(1px); }
+    100% { transform: translate(0, 0) scale(1); opacity: 1; filter: blur(0); }
+  }
+
+  /* Hero text/content rises in after the cubes begin settling. */
+  #hero .venue-tag,
+  #hero .authors,
+  #hero .affil,
+  #hero .btn-row,
+  #hero .abstract-card,
+  #hero #overview-block {
+    animation: rise-in 0.7s ease-out backwards;
+  }
+  #hero .venue-tag    { animation-delay: 0s; }
+  #hero .authors      { animation-delay: 1.5s; }
+  #hero .affil        { animation-delay: 1.6s; }
+  #hero .btn-row      { animation-delay: 1.7s; }
+  #hero .abstract-card{ animation-delay: 1.85s; }
+  #hero #overview-block { animation-delay: 2.0s; }
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-mark .cube,
+    #hero .venue-tag, #hero .authors, #hero .affil,
+    #hero .btn-row, #hero .abstract-card, #hero #overview-block {
+      animation: none;
+    }
   }
 
   @media (max-width: 700px) {

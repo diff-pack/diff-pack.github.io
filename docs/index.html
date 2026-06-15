@@ -88,19 +88,16 @@
         <div class="contrib-num">01</div>
         <div class="contrib-title">Hybrid Diffusion–Projection Planner</div>
         <div class="contrib-desc">A diffusion model jointly predicts complete 3D packing configurations, refined via a keypoint-based projection operator that guarantees physical feasibility without gradient-based projections.</div>
-        <span class="contrib-tag tag-blue">Core Architecture</span>
       </div>
       <div class="contrib-card">
         <div class="contrib-num">02</div>
         <div class="contrib-title">Inference-Time Preference Integration</div>
         <div class="contrib-desc">Hard constraints are enforced via inpainting; soft preferences via differentiable guidance functions. No retraining required — preferences are specified at test time over any new instance.</div>
-        <span class="contrib-tag tag-teal">Human–Robot Interaction</span>
       </div>
       <div class="contrib-card">
         <div class="contrib-num">03</div>
         <div class="contrib-title">Natural Language Conditioning via LLM</div>
         <div class="contrib-desc">A pretrained GPT-4o model translates natural language instructions into executable constraint code, enabling intuitive human–robot interaction without manual engineering of cost functions.</div>
-        <span class="contrib-tag tag-amber">LLM Integration</span>
       </div>
     </div>
   </div>
@@ -137,10 +134,7 @@
 
     <div class="method-detail-grid">
       <div class="method-card">
-        <div class="method-card-title">
-          <span class="label-pill tag-blue" style="font-size:10px;">Diffusion Model</span>
-          Denoising Objective
-        </div>
+        <div class="method-card-title">Denoising Objective</div>
         <div class="method-card-body">
           The model predicts the injected Gaussian noise εθ(xₜ, c, t) from noisy centroid configurations conditioned on cuboid dimensions c. Clean centroids are recovered iteratively from pure noise.
           <div class="formula">ℒ(θ) = 𝔼[‖ε − εθ(xₜ, c, t)‖²]</div>
@@ -148,10 +142,7 @@
         </div>
       </div>
       <div class="method-card">
-        <div class="method-card-title">
-          <span class="label-pill tag-teal" style="font-size:10px;">Projection</span>
-          Keypoint-Based Feasibility
-        </div>
+        <div class="method-card-title">Keypoint-Based Feasibility</div>
         <div class="method-card-body">
           Diffusion outputs are projected onto valid placements using Empty Maximal Spaces (EMS) keypoints — the strongest strategy, directing placements into large unoccupied regions.
           <div class="formula">P_C(x) = argmin_{y∈C} ‖y − x‖²</div>
@@ -159,10 +150,7 @@
         </div>
       </div>
       <div class="method-card">
-        <div class="method-card-title">
-          <span class="label-pill" style="background:var(--red50);color:var(--red600);font-size:10px;">Inpainting</span>
-          Hard Constraint Enforcement
-        </div>
+        <div class="method-card-title">Hard Constraint Enforcement</div>
         <div class="method-card-body">
           Items subject to hard preferences (e.g. "always on top") have their positions overwritten after each denoising step, guaranteeing constraint satisfaction in the final layout.
           <div class="formula">xₜ₋₁ = (1−M)⊙x̃ₜ₋₁ + M⊙y₀</div>
@@ -170,10 +158,7 @@
         </div>
       </div>
       <div class="method-card">
-        <div class="method-card-title">
-          <span class="label-pill tag-amber" style="font-size:10px;">Guidance</span>
-          Soft Preference Steering
-        </div>
+        <div class="method-card-title">Soft Preference Steering</div>
         <div class="method-card-body">
           Soft preferences are encoded as differentiable cost functions. Their gradients bias the denoising trajectory without hard-fixing positions, allowing simultaneous balancing of multiple soft constraints.
           <div class="formula">g = −Σᵢ λᵢ ∇ₓₜ₋₁ cᵢ(xₜ₋₁)</div>

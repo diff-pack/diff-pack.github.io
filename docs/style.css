@@ -37,6 +37,7 @@
   /* ── Dark mode ── */
   [data-theme="dark"] {
     --c1: #FFFFFF;
+    --c2: #d1d5db;
     --c4: #0f172a;
     --ink:   #FFFFFF;
     --ink2:  #d1d5db;

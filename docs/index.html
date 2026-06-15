@@ -64,6 +64,15 @@
         The three-dimensional bin packing problem (3D-BPP) is fundamental in robotic palletizing and warehouse automation. Existing exact and heuristic methods scale poorly or cannot accommodate dynamic preferences, while learning-based approaches typically require retraining for new constraints. We present <strong>DiffusionPack</strong>, a planning framework that formulates 3D-BPP as a conditional generation problem, learning the joint distribution of complete packing layouts using a diffusion model. Physical feasibility is ensured through a projection mechanism guided by point-based heuristics. Hard constraints are enforced through inpainting; soft preferences are integrated via guidance functions. Natural language instructions are supported through an LLM that translates user input into constraint specifications. Real-world validation on a Franka robot demonstrates reliable execution.
       </p>
     </div>
+    <div style="margin-top:2rem;">
+      <video
+        src="intro.mp4"
+        controls
+        muted
+        playsinline
+        style="width:100%;max-width:860px;border-radius:12px;box-shadow:0 4px 32px rgba(0,0,0,0.18);display:block;margin:0 auto;"
+      ></video>
+    </div>
   </div>
 </section>
 
@@ -479,11 +488,13 @@
 
     <div class="robot-grid">
       <div>
-        <div class="robot-video-placeholder" onclick="alert('Video footage placeholder — add real video URL here')">
-          <div class="video-icon">▶</div>
-          <div style="font-weight:500;">Robot Demo Video</div>
-          <div style="font-size:12px;">Placeholder — add video link</div>
-        </div>
+        <video
+          src="realworld_demo.mp4"
+          controls
+          muted
+          playsinline
+          style="width:100%;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,0.18);"
+        ></video>
         <div class="success-rate-big">
           <div class="sr-num">80%</div>
           <div class="sr-label">Task success rate · 8 of 10 trials</div>

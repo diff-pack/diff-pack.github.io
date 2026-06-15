@@ -1,28 +1,58 @@
   :root {
-    --serif: 'Source Serif 4', Georgia, serif;
-    --sans: 'Inter', system-ui, sans-serif;
-    --mono: 'JetBrains Mono', monospace;
-    --ink: #1a1917;
-    --ink2: #4a4844;
-    --ink3: #8a8680;
-    --paper: #faf9f7;
-    --paper2: #f2f0eb;
-    --paper3: #e8e4dd;
-    --rule: #d8d3cb;
-    --accent: #1d5fa5;
-    --accent2: #0f6e56;
-    --accent3: #854f0b;
-    --warm: #e8593c;
-    --blue50: #e6f1fb;
-    --blue600: #185fa5;
-    --teal50: #e1f5ee;
-    --teal600: #0f6e56;
-    --amber50: #faeeda;
-    --amber600: #854f0b;
-    --red50: #fcebeb;
-    --red600: #a32d2d;
-    --max: 860px;
-    --narrow: 620px;
+    /* ── Theme — change these four lines to retheme the entire site ── */
+    --c1: #303841;   /* primary text   */
+    --c2: #76ABAE;   /* secondary / teal accent */
+    --c3: #FF5722;   /* primary accent / highlight */
+    --c4: #F5F5F5;   /* background     */
+
+    /* Fonts */
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'Jost', system-ui, sans-serif;
+    --mono:  'JetBrains Mono', monospace;
+
+    /* Derived palette — adjust if needed when swapping theme */
+    --ink:    var(--c1);
+    --ink2:   #556068;
+    --ink3:   #8a9399;
+    --paper:  var(--c4);
+    --paper2: #ebebeb;
+    --paper3: #e0e0e0;
+    --rule:   #d4d4d4;
+    --accent:  var(--c3);
+    --accent2: var(--c2);
+    --accent3: var(--c3);
+    --warm:    var(--c3);
+    --blue50:   #e8f4f5;
+    --blue600:  var(--c2);
+    --teal50:   #e8f4f5;
+    --teal600:  var(--c2);
+    --amber50:  #fff0eb;
+    --amber600: var(--c3);
+    --red50:    #fff0eb;
+    --red600:   var(--c3);
+    --max: 1100px;
+    --narrow: 680px;
+  }
+
+  /* ── Dark mode ── */
+  [data-theme="dark"] {
+    --c1: #FFFFFF;   /* light text on dark */
+    --c4: #1C2530;   /* dark background    */
+    /* --c2 (teal) and --c3 (orange) stay the same */
+    --ink:   #FFFFFF;
+    --ink2:  #9BADB8;
+    --ink3:  #637784;
+    --paper: #1C2530;
+    --paper2: #232d3b;
+    --paper3: #2b3648;
+    --rule:  #374655;
+    --blue50:   #1e3040;
+    --teal50:   #1e3040;
+    --amber50:  #2e1e14;
+    --red50:    #2e1e14;
+  }
+  [data-theme="dark"] nav {
+    background: rgba(28,37,48,0.96);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,7 +71,7 @@
   /* NAV */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(250,249,247,0.94);
+    background: rgba(245,245,245,0.95);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--rule);
     padding: 0 2rem;
@@ -75,24 +105,26 @@
     letter-spacing: 0.01em;
     transition: color 0.15s;
   }
-  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover { color: var(--c2); }
   .nav-badge {
     font-size: 11px;
-    padding: 3px 8px;
-    background: var(--blue50);
-    color: var(--blue600);
+    padding: 3px 10px;
+    background: var(--c3);
+    color: #fff;
     border-radius: 20px;
     font-weight: 500;
     white-space: nowrap;
+    letter-spacing: 0.03em;
   }
 
   /* SECTIONS */
   section { padding: 5rem 2rem; }
   .section-inner { max-width: var(--max); margin: 0 auto; }
+  #hero .section-inner { max-width: 840px; }
 
   /* HERO */
   #hero {
-    padding: 5rem 2rem 4rem;
+    padding: 4rem 2rem 3.5rem;
     border-bottom: 1px solid var(--rule);
     text-align: center;
   }
@@ -111,13 +143,13 @@
 
   h1 {
     font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 2.9rem);
-    font-weight: 300;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     color: var(--ink);
-    max-width: 740px;
-    margin: 0 auto 2rem;
+    max-width: 700px;
+    margin: 0 auto 1.75rem;
   }
   h1 em { font-style: italic; color: var(--accent); }
 
@@ -162,24 +194,26 @@
     font-family: var(--sans);
   }
   .btn-primary {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--c3);
+    color: #fff;
+    border: 1px solid var(--c3);
   }
-  .btn-primary:hover { background: #333; }
+  .btn-primary:hover { filter: brightness(0.9); }
   .btn-outline {
     background: transparent;
     color: var(--ink);
     border: 1px solid var(--rule);
   }
-  .btn-outline:hover { border-color: var(--ink3); background: var(--paper2); }
+  .btn-outline:hover { border-color: var(--c2); color: var(--c2); background: var(--blue50); }
 
   /* ABSTRACT */
   .abstract-card {
-    background: var(--paper2);
+    background: var(--paper);
     border: 1px solid var(--rule);
-    border-radius: 10px;
-    padding: 1.75rem 2.5rem;
-    max-width: var(--max);
+    border-left: 3px solid var(--c2);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    max-width: 100%;
     margin: 0 auto;
     text-align: left;
   }
@@ -188,29 +222,29 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ink3);
+    color: var(--c2);
     margin-bottom: 0.75rem;
   }
   .abstract-text {
     font-family: var(--serif);
-    font-size: 15px;
-    line-height: 1.75;
+    font-size: 15.5px;
+    line-height: 1.8;
     color: var(--ink2);
   }
 
   /* SECTION HEADERS */
   h2 {
     font-family: var(--serif);
-    font-size: 1.7rem;
-    font-weight: 300;
-    letter-spacing: -0.02em;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
     color: var(--ink);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
   }
   .section-subtitle {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--ink3);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     letter-spacing: 0.01em;
   }
 
@@ -224,12 +258,13 @@
   .contrib-card {
     background: var(--paper);
     border: 1px solid var(--rule);
-    border-radius: 10px;
-    padding: 1.5rem;
+    border-top: 3px solid var(--c2);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
     position: relative;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .contrib-card:hover { border-color: var(--ink3); }
+  .contrib-card:hover { border-color: var(--c2); box-shadow: 0 4px 16px rgba(118,171,174,0.15); }
   .contrib-num {
     font-family: var(--mono);
     font-size: 11px;

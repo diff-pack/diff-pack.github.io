@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+*.pth
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Large files — trajectories are committed to docs/ intentionally
+# but the raw JSON outside docs/ is optional
+demo_trajectories_raw.json

@@ -1,58 +1,57 @@
   :root {
     /* ── Theme — change these four lines to retheme the entire site ── */
-    --c1: #303841;   /* primary text   */
-    --c2: #76ABAE;   /* secondary / teal accent */
-    --c3: #FF5722;   /* primary accent / highlight */
-    --c4: #F5F5F5;   /* background     */
+    --c1: #111827;   /* primary text   */
+    --c2: #2563eb;   /* accent blue    */
+    --c3: #1d4ed8;   /* accent blue dark */
+    --c4: #ffffff;   /* background     */
 
     /* Fonts */
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans:  'Jost', system-ui, sans-serif;
+    --serif: 'Merriweather', Georgia, serif;
+    --sans:  'Inter', system-ui, sans-serif;
     --mono:  'JetBrains Mono', monospace;
 
-    /* Derived palette — adjust if needed when swapping theme */
+    /* Derived palette */
     --ink:    var(--c1);
-    --ink2:   #556068;
-    --ink3:   #8a9399;
+    --ink2:   #374151;
+    --ink3:   #6b7280;
     --paper:  var(--c4);
-    --paper2: #ebebeb;
-    --paper3: #e0e0e0;
-    --rule:   #d4d4d4;
-    --accent:  var(--c3);
-    --accent2: var(--c2);
-    --accent3: var(--c3);
-    --warm:    var(--c3);
-    --blue50:   #e8f4f5;
+    --paper2: #f9fafb;
+    --paper3: #f3f4f6;
+    --rule:   #e5e7eb;
+    --accent:  var(--c2);
+    --accent2: #059669;
+    --accent3: var(--c2);
+    --warm:    #f59e0b;
+    --blue50:   #eff6ff;
     --blue600:  var(--c2);
-    --teal50:   #e8f4f5;
-    --teal600:  var(--c2);
-    --amber50:  #fff0eb;
-    --amber600: var(--c3);
-    --red50:    #fff0eb;
-    --red600:   var(--c3);
+    --teal50:   #ecfdf5;
+    --teal600:  #059669;
+    --amber50:  #fffbeb;
+    --amber600: #d97706;
+    --red50:    #fef2f2;
+    --red600:   #dc2626;
     --max: 1100px;
     --narrow: 680px;
   }
 
   /* ── Dark mode ── */
   [data-theme="dark"] {
-    --c1: #FFFFFF;   /* light text on dark */
-    --c4: #1C2530;   /* dark background    */
-    /* --c2 (teal) and --c3 (orange) stay the same */
+    --c1: #FFFFFF;
+    --c4: #111827;
     --ink:   #FFFFFF;
-    --ink2:  #9BADB8;
-    --ink3:  #637784;
-    --paper: #1C2530;
-    --paper2: #232d3b;
-    --paper3: #2b3648;
-    --rule:  #374655;
-    --blue50:   #1e3040;
-    --teal50:   #1e3040;
-    --amber50:  #2e1e14;
-    --red50:    #2e1e14;
+    --ink2:  #d1d5db;
+    --ink3:  #9ca3af;
+    --paper: #111827;
+    --paper2: #1f2937;
+    --paper3: #374151;
+    --rule:  #374151;
+    --blue50:   #1e3a5f;
+    --teal50:   #064e3b;
+    --amber50:  #451a03;
+    --red50:    #450a0a;
   }
   [data-theme="dark"] nav {
-    background: rgba(28,37,48,0.96);
+    background: rgba(17,24,39,0.96);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,8 +70,8 @@
   /* NAV */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(245,245,245,0.95);
-    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--rule);
     padding: 0 2rem;
   }
@@ -86,11 +85,11 @@
     gap: 2rem;
   }
   .nav-logo {
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 500;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
     color: var(--ink);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     white-space: nowrap;
   }
   .nav-links {
@@ -100,27 +99,29 @@
   }
   .nav-links a {
     font-size: 13px;
-    color: var(--ink2);
+    color: var(--ink3);
     text-decoration: none;
-    letter-spacing: 0.01em;
     transition: color 0.15s;
   }
-  .nav-links a:hover { color: var(--c2); }
+  .nav-links a:hover { color: var(--ink); }
   .nav-badge {
     font-size: 11px;
     padding: 3px 10px;
-    background: var(--c3);
-    color: #fff;
+    background: var(--blue50);
+    color: var(--c2);
+    border: 1px solid #bfdbfe;
     border-radius: 20px;
     font-weight: 500;
     white-space: nowrap;
-    letter-spacing: 0.03em;
   }
 
   /* SECTIONS */
   section { padding: 5rem 2rem; }
   .section-inner { max-width: var(--max); margin: 0 auto; }
   #hero .section-inner { max-width: 840px; }
+  #contributions { background: var(--paper2); }
+  #ablations { background: var(--paper2); }
+  #bibtex { background: var(--paper2); }
 
   /* HERO */
   #hero {
@@ -143,15 +144,15 @@
 
   h1 {
     font-family: var(--serif);
-    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-    font-weight: 400;
-    line-height: 1.15;
+    font-size: clamp(1.9rem, 3.8vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.25;
     letter-spacing: -0.01em;
     color: var(--ink);
     max-width: 700px;
     margin: 0 auto 1.75rem;
   }
-  h1 em { font-style: italic; color: var(--accent); }
+  h1 em { font-style: italic; color: var(--c2); }
 
   .authors {
     display: flex;
@@ -183,7 +184,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 18px;
+    padding: 9px 20px;
     font-size: 13px;
     font-weight: 500;
     border-radius: 6px;
@@ -194,23 +195,22 @@
     font-family: var(--sans);
   }
   .btn-primary {
-    background: var(--c3);
+    background: var(--c2);
     color: #fff;
-    border: 1px solid var(--c3);
+    border: 1px solid var(--c2);
   }
-  .btn-primary:hover { filter: brightness(0.9); }
+  .btn-primary:hover { background: var(--c3); border-color: var(--c3); }
   .btn-outline {
     background: transparent;
-    color: var(--ink);
+    color: var(--ink2);
     border: 1px solid var(--rule);
   }
-  .btn-outline:hover { border-color: var(--c2); color: var(--c2); background: var(--blue50); }
+  .btn-outline:hover { border-color: var(--ink3); color: var(--ink); background: var(--paper2); }
 
   /* ABSTRACT */
   .abstract-card {
-    background: var(--paper);
+    background: var(--paper2);
     border: 1px solid var(--rule);
-    border-left: 3px solid var(--c2);
     border-radius: 8px;
     padding: 1.5rem 2rem;
     max-width: 100%;
@@ -220,32 +220,32 @@
   .abstract-label {
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--c2);
+    color: var(--ink3);
     margin-bottom: 0.75rem;
   }
   .abstract-text {
     font-family: var(--serif);
-    font-size: 15.5px;
-    line-height: 1.8;
+    font-size: 14.5px;
+    line-height: 1.85;
     color: var(--ink2);
   }
 
   /* SECTION HEADERS */
   h2 {
-    font-family: var(--serif);
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-family: var(--sans);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: var(--ink);
     margin-bottom: 0.35rem;
+    line-height: 1.25;
   }
   .section-subtitle {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--ink3);
-    margin-bottom: 2rem;
-    letter-spacing: 0.01em;
+    margin-bottom: 2.5rem;
   }
 
   /* KEY CONTRIBUTIONS */
@@ -258,13 +258,13 @@
   .contrib-card {
     background: var(--paper);
     border: 1px solid var(--rule);
-    border-top: 3px solid var(--c2);
     border-radius: 8px;
-    padding: 1.25rem 1.5rem;
+    padding: 1.5rem;
     position: relative;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
-  .contrib-card:hover { border-color: var(--c2); box-shadow: 0 4px 16px rgba(118,171,174,0.15); }
+  .contrib-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-color: #d1d5db; }
   .contrib-num {
     font-family: var(--mono);
     font-size: 11px;
@@ -285,10 +285,12 @@
   .contrib-tag {
     display: inline-block;
     margin-top: 0.75rem;
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-weight: 500;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-family: var(--mono);
   }
   .tag-blue { background: var(--blue50); color: var(--blue600); }
   .tag-teal { background: var(--teal50); color: var(--teal600); }
@@ -302,7 +304,7 @@
     gap: 1px;
     background: var(--rule);
     border: 1px solid var(--rule);
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     margin-bottom: 2.5rem;
   }
@@ -339,9 +341,10 @@
   }
   .method-card {
     border: 1px solid var(--rule);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 1.5rem;
     background: var(--paper);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
   .method-card-title {
     font-size: 13px;
@@ -615,9 +618,10 @@
   }
   .chart-card {
     border: 1px solid var(--rule);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 1.25rem 1.25rem 1rem;
     background: var(--paper);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
   .chart-title {
     font-size: 13px;
@@ -634,9 +638,10 @@
 
   .results-table-wrap {
     border: 1px solid var(--rule);
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     margin-top: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
   .results-table-title {
     padding: 1rem 1.25rem;
@@ -672,8 +677,8 @@
   }
   td:first-child { text-align: left; font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--ink); }
   tr:last-child td { border-bottom: none; }
-  tr.highlight td { background: #e8f3ff; color: var(--blue600); }
-  tr.highlight td:first-child { color: var(--blue600); }
+  tr.highlight td { background: #eaf0fb; color: var(--c3); }
+  tr.highlight td:first-child { color: var(--c3); }
 
   /* ABLATIONS */
   #ablations { background: var(--paper2); border-bottom: 1px solid var(--rule); }
@@ -693,9 +698,10 @@
   }
   .pref-card {
     border: 1px solid var(--rule);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 1.25rem;
     background: var(--paper);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
   .pref-card-type {
     font-size: 10px;
@@ -715,9 +721,10 @@
 
   .sr-table-wrap {
     border: 1px solid var(--rule);
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     margin-top: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
 
   /* ROBOT */
@@ -731,7 +738,7 @@
   .robot-video-placeholder {
     background: var(--paper2);
     border: 1px dashed var(--rule);
-    border-radius: 10px;
+    border-radius: 0;
     aspect-ratio: 16/10;
     display: flex;
     flex-direction: column;
@@ -764,8 +771,8 @@
   .sr-num {
     font-family: var(--serif);
     font-size: 4rem;
-    font-weight: 300;
-    color: var(--accent2);
+    font-weight: 800;
+    color: var(--c2);
     line-height: 1;
   }
   .sr-label { font-size: 13px; color: var(--ink3); margin-top: 0.25rem; }
@@ -777,7 +784,7 @@
     font-size: 12px;
     background: var(--ink);
     color: #c8c4bc;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 1.5rem;
     line-height: 1.7;
     position: relative;
@@ -820,7 +827,8 @@
     letter-spacing: 0.07em;
     text-transform: uppercase;
     padding: 2px 7px;
-    border-radius: 20px;
+    border-radius: 2px;
+    font-family: var(--mono);
   }
 
   @media (max-width: 700px) {

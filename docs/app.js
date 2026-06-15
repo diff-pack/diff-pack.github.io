@@ -15,16 +15,16 @@
 // ============================================================
 // CHARTS
 // ============================================================
-const BLUE = '#185fa5', TEAL = '#0f6e56', AMBER = '#854f0b', RED = '#a32d2d', GRAY = '#8a8680';
-const BLUE_L = '#b5d4f4', TEAL_L = '#9fe1cb';
+const BLUE = '#2563eb', TEAL = '#059669', AMBER = '#d97706', RED = '#dc2626', GRAY = '#9ca3af';
+const BLUE_L = '#93c5fd', TEAL_L = '#6ee7b7';
 
 const chartDefaults = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: { legend: { display: false } },
   scales: {
-    y: { grid: { color: '#e8e4dd' }, ticks: { font: { size: 11, family: "'JetBrains Mono'" }, color: '#8a8680' } },
-    x: { grid: { display: false }, ticks: { font: { size: 11, family: "'Inter'" }, color: '#4a4844' }, autoSkip: false }
+    y: { grid: { color: '#f3f4f6' }, ticks: { font: { size: 11, family: "'JetBrains Mono'" }, color: '#9ca3af' } },
+    x: { grid: { display: false }, ticks: { font: { size: 11, family: "'Inter'" }, color: '#6b7280' }, autoSkip: false }
   }
 };
 
@@ -35,7 +35,7 @@ new Chart(document.getElementById('chart-ur-csd32'), {
     labels: ['First Fit','Best Fit','DBLF+GA','RCQL','GUROBI','GUROBI*','Diffusion\n(ours)'],
     datasets: [{
       data: [53.2, 72.4, 70.8, 62.6, 64.4, 77.6, 99.4],
-      backgroundColor: ['#d3d1c7','#d3d1c7','#d3d1c7','#d3d1c7','#d3d1c7','#d3d1c7', TEAL],
+      backgroundColor: ['#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0', TEAL],
       borderRadius: 4
     }]
   },
@@ -49,7 +49,7 @@ new Chart(document.getElementById('chart-ur-rsd32'), {
     labels: ['First Fit','Best Fit','DBLF+GA','RCQL','GUROBI','GUROBI*','Diffusion\n(ours)'],
     datasets: [{
       data: [67.5, 82.2, 67.5, 69.6, 64.9, 73.6, 85.7],
-      backgroundColor: ['#d3d1c7','#d3d1c7','#d3d1c7','#d3d1c7','#d3d1c7','#d3d1c7', TEAL],
+      backgroundColor: ['#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0', TEAL],
       borderRadius: 4
     }]
   },
@@ -62,7 +62,7 @@ new Chart(document.getElementById('chart-sr'), {
   data: {
     labels: ['5 Objects', '16 Objects', '32 Objects'],
     datasets: [
-      { label: 'DiffusionCCSP', data: [52, 5, 0], backgroundColor: '#d3d1c7', borderRadius: 3 },
+      { label: 'DiffusionCCSP', data: [52, 5, 0], backgroundColor: '#c8c7c0', borderRadius: 3 },
       { label: 'DiffusionPack', data: [71, 66, 62], backgroundColor: BLUE, borderRadius: 3 },
       { label: 'DiffusionPack-LLM', data: [66, 59, 53], backgroundColor: BLUE_L, borderRadius: 3 }
     ]
@@ -86,7 +86,7 @@ new Chart(document.getElementById('chart-scale'), {
       { label: 'RSD', data: [75.8, 85.7, 84.1, 84.3, 84.5, 84.6], borderColor: TEAL, backgroundColor: 'transparent', pointBackgroundColor: TEAL, tension: 0.3, borderWidth: 2, pointRadius: 4, borderDash: [5,3] }
     ]
   },
-  options: { ...chartDefaults, plugins: { legend: { display: false } }, scales: { ...chartDefaults.scales, y: { ...chartDefaults.scales.y, min: 60, max: 105, ticks: { ...chartDefaults.scales.y.ticks, callback: v => v+'%' } }, x: { ...chartDefaults.scales.x, title: { display: true, text: 'Cuboid count', font: { size: 11 }, color: '#8a8680' } } } }
+  options: { ...chartDefaults, plugins: { legend: { display: false } }, scales: { ...chartDefaults.scales, y: { ...chartDefaults.scales.y, min: 60, max: 105, ticks: { ...chartDefaults.scales.y.ticks, callback: v => v+'%' } }, x: { ...chartDefaults.scales.x, title: { display: true, text: 'Cuboid count', font: { size: 11 }, color: '#7a7a90' } } } }
 });
 
 // Ablation chart
@@ -99,7 +99,7 @@ new Chart(document.getElementById('chart-ablation'), {
       { label: 'CSD-32', data: [43.4, 58.8, 91.1, 97.7, 98.2, 99.4], backgroundColor: BLUE_L, borderRadius: 3 }
     ]
   },
-  options: { ...chartDefaults, plugins: { legend: { display: false } }, scales: { ...chartDefaults.scales, y: { ...chartDefaults.scales.y, min: 0, max: 110, ticks: { ...chartDefaults.scales.y.ticks, callback: v => v+'%' } }, x: { ...chartDefaults.scales.x, ticks: { font: { size: 10 }, color: '#4a4844', maxRotation: 30 } } } }
+  options: { ...chartDefaults, plugins: { legend: { display: false } }, scales: { ...chartDefaults.scales, y: { ...chartDefaults.scales.y, min: 0, max: 110, ticks: { ...chartDefaults.scales.y.ticks, callback: v => v+'%' } }, x: { ...chartDefaults.scales.x, ticks: { font: { size: 10 }, color: '#3d3d52', maxRotation: 30 } } } }
 });
 
 // ============================================================

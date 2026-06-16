@@ -32,10 +32,10 @@ const chartDefaults = {
 new Chart(document.getElementById('chart-ur-csd32'), {
   type: 'bar',
   data: {
-    labels: ['First Fit','Best Fit','DBLF+GA','RCQL','GUROBI','GUROBI*','Diffusion\n(ours)'],
+    labels: ['First Fit','DBLF+GA','RCQL','GUROBI','GUROBI*','Diffusion\n(ours)'],
     datasets: [{
-      data: [53.2, 72.4, 70.8, 62.6, 64.4, 77.6, 99.4],
-      backgroundColor: ['#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0', TEAL],
+      data: [53.2, 70.8, 62.6, 64.4, 77.6, 99.4],
+      backgroundColor: ['#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0', TEAL],
       borderRadius: 4
     }]
   },
@@ -46,10 +46,10 @@ new Chart(document.getElementById('chart-ur-csd32'), {
 new Chart(document.getElementById('chart-ur-rsd32'), {
   type: 'bar',
   data: {
-    labels: ['First Fit','Best Fit','DBLF+GA','RCQL','GUROBI','GUROBI*','Diffusion\n(ours)'],
+    labels: ['First Fit','DBLF+GA','RCQL','GUROBI','GUROBI*','Diffusion\n(ours)'],
     datasets: [{
-      data: [67.5, 82.2, 67.5, 69.6, 64.9, 73.6, 85.7],
-      backgroundColor: ['#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0', TEAL],
+      data: [67.5, 67.5, 69.6, 64.9, 73.6, 85.7],
+      backgroundColor: ['#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0','#c8c7c0', TEAL],
       borderRadius: 4
     }]
   },

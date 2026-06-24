@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DiffusionPack: Bin Packing with Custom Human Preferences</title>
+<title>DiffusionPack: Offline Bin Packing with Custom Human Preferences</title>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
@@ -79,7 +79,7 @@
           <path d="M-22.0 -22.4 0.0 -11.4 0.0 14.6 -22.0 3.6Z" fill="#217a35"/>
           <path d="M22.0 -22.4 0.0 -11.4 0.0 14.6 22.0 3.6Z" fill="#2b9c44"/>
         </g>
-      </svg>DiffusionPack: Bin Packing with <em>Custom Human Preferences</em></h1>
+      </svg>DiffusionPack: Offline Bin Packing with <em>Custom Human Preferences</em></h1>
 
     <div class="authors">
       <a href="#" class="author">Anonymous Author(s)<sup></sup></a>
@@ -108,7 +108,7 @@
     <div class="abstract-card">
       <div class="abstract-label">Abstract</div>
       <p class="abstract-text">
-        The three-dimensional bin packing problem (3D-BPP) is fundamental in robotic palletizing and warehouse automation. Existing exact and heuristic methods scale poorly or cannot accommodate dynamic preferences, while learning-based approaches typically require retraining for new constraints. We present <strong>DiffusionPack</strong>, a planning framework that formulates 3D-BPP as a conditional generation problem, learning the joint distribution of complete packing layouts using a diffusion model. Physical feasibility is ensured through a projection mechanism guided by point-based heuristics. Hard constraints are enforced through inpainting; soft preferences are integrated via guidance functions. Natural language instructions are supported through an LLM that translates user input into constraint specifications. Real-world validation on a Franka robot demonstrates reliable execution.
+        The three-dimensional bin packing problem (3D-BPP) is fundamental in robotic palletizing and warehouse automation, where systems must generate compact, feasible layouts that also satisfy user-defined requirements. Existing exact and heuristic methods scale poorly or cannot accommodate dynamic preferences, while learning-based approaches typically require retraining for new constraints. We present <strong>DiffusionPack</strong>, a planning framework that formulates 3D-BPP as a conditional generation problem and learns the joint distribution of complete packing layouts using a diffusion model. To ensure physical feasibility, diffusion outputs are refined through a projection mechanism guided by point-based heuristics. The method incorporates user guidance at inference: hard constraints are enforced through inpainting, and soft preferences are integrated via guidance functions. Natural language instructions are supported through an LLM that translates user input into constraint specifications. Real-world validation on a Franka robot demonstrate the applicability of our approach to practical robotic packing tasks.
       </p>
     </div>
     <div id="overview-block" style="margin-top:2.5rem;">
@@ -558,7 +558,7 @@
     <div class="bibtex-block">
       <button class="copy-btn" onclick="copyBibtex()">Copy</button>
 <pre id="bibtex-text"><span class="bibtex-key">@article</span>{diffusionpack2026,
-  <span class="bibtex-key">title</span>   = {<span class="bibtex-val">DiffusionPack: Bin Packing with Custom Human Preferences</span>},
+  <span class="bibtex-key">title</span>   = {<span class="bibtex-val">DiffusionPack: Offline Bin Packing with Custom Human Preferences</span>},
   <span class="bibtex-key">author</span>  = {<span class="bibtex-val">Anonymous Author(s)</span>},
   <span class="bibtex-key">journal</span> = {<span class="bibtex-val">Under Review</span>},
   <span class="bibtex-key">year</span>    = {<span class="bibtex-val">2026</span>},
@@ -572,7 +572,7 @@
 </section>
 
 <footer>
-  <p>DiffusionPack · Under Review · Anonymous Submission · Do not distribute</p>
+  <p>DiffusionPack: Offline Bin Packing with Custom Human Preferences · Under Review · Anonymous Submission · Do not distribute</p>
   <p style="margin-top:0.4rem;"><a href="#hero">Back to top ↑</a></p>
 </footer>
 
